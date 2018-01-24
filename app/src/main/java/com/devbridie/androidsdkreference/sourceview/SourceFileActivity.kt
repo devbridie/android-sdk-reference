@@ -2,6 +2,7 @@ package com.devbridie.androidsdkreference.sourceview
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.devbridie.androidsdkreference.R
 import com.devbridie.androidsdkreference.models.SourceFileEntry
 import kotlinx.android.synthetic.main.main_activity.*
@@ -10,6 +11,7 @@ class SourceFileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        progress.visibility = View.GONE
 
         val sourceFileEntry = intent.getStringExtra("file").let { SourceFileEntry(it) }
 
