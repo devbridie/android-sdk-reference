@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
     fun replaceMainFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
+            .setCustomAnimations(R.anim.push_down_in, android.R.anim.slide_out_right)
             .replace(R.id.mainFrame, fragment)
             .commit()
         invalidateOptionsMenu()
@@ -93,6 +94,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
     fun showFile(filePath: String) {
         startActivity(Intent(this, SourceFileActivity::class.java).putExtra("file", filePath))
+        overridePendingTransition(R.anim.slide_in_right, R.anim.hold)
     }
 
     enum class ViewState {
